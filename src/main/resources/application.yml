@@ -1,0 +1,4 @@
+HolidayApi:
+  key: f9d4f27e-2507-4a29-945d-8b22786dd950
+  urlHolidays: https://holidayapi.com/v1/holidays
+  urlCountries: https://holidayapi.com/v1/countries
