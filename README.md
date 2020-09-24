@@ -1,1 +1,4 @@
-# holiday
+I used Spring Boot to create this webservice and HolidayApi(https://holidayapi.com/) as a source of information about holidays. Free account in this api allow to check holidays only from last historical year (2019).
+You can run application from command line, first go to main directory of project and then build by maven (mvn package), next run compiled jar by use command 'java -jar target/application-0.0.1-SNAPSHOT.jar' or just use command 'mvn spring-boot:run'. 
+The base url of this service is http://localhost:8080/next-holiday (if you run it locally with default port). You have to add mandatory query parameters, countries and date, e.g. http://localhost:8080/next-holiday?countries=pl,fr&date=2020-01-01. It's necessary to pass two country codes in one parameter separated by comma.
+The key for this api is stored in application.yml file.
