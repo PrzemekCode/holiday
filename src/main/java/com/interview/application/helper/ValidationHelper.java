@@ -15,23 +15,25 @@ public class ValidationHelper {
     }
 
     private static void validateQueryParameters(RequestData data) {
-        if(Objects.isNull(data.getDate())) {
+        if (Objects.isNull(data.getDate())) {
             throw new ValidationException("Parameter date is mandatory");
-        } else if(Objects.isNull(data.getCountries())) {
+        } else if (Objects.isNull(data.getCountries())) {
             throw new ValidationException("Parameter countries is mandatory");
         }
     }
 
     private static void validateCountries(String countries) {
-        if(countries.isBlank() || !countries.contains(COMMA) || countries.split(COMMA).length != 2 || isAnyCodeEmpty(countries)) {
+        if (countries.isBlank() || !countries.contains(COMMA)) {
             throw new ValidationException("Wrong data about countries: " + countries);
+        } else if (countries.split(COMMA).length != 2 || isAnyCodeEmpty(countries)) {
+            throw new ValidationException("Should to specify two different countries separated by comma");
         }
         isDuplicationCounries(countries);
     }
 
     private static void isDuplicationCounries(String countries) {
         String[] splittedCountries = countries.split(COMMA);
-        if(splittedCountries[0].trim().equalsIgnoreCase(splittedCountries[1].trim())) {
+        if (splittedCountries[0].trim().equalsIgnoreCase(splittedCountries[1].trim())) {
             throw new ValidationException("The same country is duplicated: " + countries);
         }
     }
